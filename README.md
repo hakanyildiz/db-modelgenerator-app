@@ -1,4 +1,8 @@
-# 't-angular-boilerplate-keycloak' template üzerinden geliştirme yapılmıştır.
+# DB Generator Model App
+
+Oracle, PostgreSql, Cassandra hedef veritabanı ile bağlantı kurularak JPA Spesifikasyonunda Model Java sınıflarının oluşturulması için geliştirmiş olan dbgenerator-api Spring Boot projesiyle konuşan web arayüzüdür.
+
+### _'t-angular-boilerplate-keycloak' template üzerinden geliştirme yapılmıştır._
 
 Modüler Angular projesi geliştirmesi için tasarlanmıştır. 
 
