@@ -16,7 +16,7 @@ export class AuthService {
   }
 
   currentUserIsNull(): boolean {
-    return this.currentUserValue === null;
+    return Object.keys(this.currentUserValue).length === 0;
   }
 
   setCurrentUser(user: User) {
