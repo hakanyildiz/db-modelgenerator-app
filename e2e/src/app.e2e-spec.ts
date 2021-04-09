@@ -10,7 +10,7 @@ describe('workspace-project App', () => {
 
   it('should display welcome message', async () => {
     await page.navigateTo();
-    expect(await page.getTitleText()).toEqual('t-angular-boilerplate-keycloak app is running!');
+    expect(await page.getTitleText()).toEqual('db-modelgenerator-app app is running!');
   });
 
   afterEach(async () => {

@@ -2,7 +2,7 @@
 
 Oracle, PostgreSql, Cassandra hedef veritabanı ile bağlantı kurularak JPA Spesifikasyonunda Model Java sınıflarının oluşturulması için geliştirmiş olan dbgenerator-api Spring Boot projesiyle konuşan web arayüzüdür.
 
-### _'t-angular-boilerplate-keycloak' template üzerinden geliştirme yapılmıştır._
+### _'db-modelgenerator-app' template üzerinden geliştirme yapılmıştır._
 
 Modüler Angular projesi geliştirmesi için tasarlanmıştır. 
 
@@ -37,7 +37,7 @@ Burada uygulamanın Tomcat sunucusuna nasıl yükleneceği anlatılmaktadır. To
 
 `index.html` dosyasına bu subrouting ile erişilmek istenildiğinde, eğer base-href bilgisi verilmez ise hata oluşmaktadır.
 
-1. `ng build --prod --base-href /proje-ismi/` komutu çalıştırılarak `dist/` klasörü altında canlıya alınacak kodları içeren klasör otomatik oluşturulur.
+1. `ng build --prod --base-href /modelgenerator-app/` komutu çalıştırılarak `dist/` klasörü altında canlıya alınacak kodları içeren klasör otomatik oluşturulur.
 
 2. Tomcat'e atılacak olan bu klasör ismi base-href deki verilen tanımlamadan farklı ise güncellenmelidir.
 
@@ -84,12 +84,12 @@ Proje içerisinde ortak kullanımda olan Component, Pipe, Directive, function, m
 * _Material.module_: Angular Material Design Componentlerinin import, export larının tek bir noktaya toplandığı modüldür.
 
 ## **Projede Yapılması Gereken Düzenlemeler**
-1. `index.html` ve `environment.ts` dosyalarında uygulama konfigürasyonları bulunmaktadır. Burada Keycloak tanımlamaları eklenmeli, Rest API bilgileri doldurulmalıdır. Birden fazla Rest API etkileşimi için tanımlamalar çoğaltılmalıdır.
+1. `index.html` ve `environment.ts` dosyalarında uygulama konfigürasyonları bulunmaktadır. Burada Keycloak tanımlamaları eklenmeli, Rest API bilgileri doldurulmalıdır. Birden fazla Rest API etkileşimi için tanımlamalar çoğaltılmalıdır. **_YAPILDI_**
 
-2. Uygulamaya şu anda doğrudan erişilebilebilmektedir. Eğer kimlik doğrulama aktif hale getirilmek isteniyorsa Keycloak tanımlamaları hazır olduktan sonra, `app.module.ts` AppModule yorum haline bırakılmış alanlar açılıp, kaldırılması gereken yerler düzenlemelidir. 
+2. Uygulamaya şu anda doğrudan erişilebilebilmektedir. Eğer kimlik doğrulama aktif hale getirilmek isteniyorsa Keycloak tanımlamaları hazır olduktan sonra, `app.module.ts` AppModule yorum haline bırakılmış alanlar açılıp, kaldırılması gereken yerler düzenlemelidir. **_YAPILDI_**
 
-3. `environment.ts` dosyasındaki `isMock` değeri false olarak güncellenmelidir. Böylelikle `content-layout.component.ts` içerisinde kullanıcı bilgileri mock yerine Keycloak servisinden yüklenecektir.
+3. `environment.ts` dosyasındaki `isMock` değeri false olarak güncellenmelidir. Böylelikle `content-layout.component.ts` içerisinde kullanıcı bilgileri mock yerine Keycloak servisinden yüklenecektir.**_YAPILDI_**
 
-4. Modüllerde yetkilendirme katmanının etkileştirilmesi için, `app-routing.module.ts` dosyasındaki route dizisindeki yorum halinde tutulan Guard alanlarının açılmalıdır.
-5. Proje detayları doğrultusunda, var olan modüller güncellenebilir, yeni componentler ve modüller eklenebilir.
-
+4. Modüllerde yetkilendirme katmanının etkileştirilmesi için, `app-routing.module.ts` dosyasındaki route dizisindeki yorum halinde tutulan Guard alanlarının açılmalıdır. **_YAPILDI_**
+5. Proje detayları doğrultusunda, var olan modüller güncellenebilir, yeni componentler ve modüller eklenebilir.**_YAPILDI_**
+6. Güncellenen proje ismiyle `angular.json`, `app.e2e-spec.ts` ve `karma.conf.js` dosyalarındaki proje isimleri güncellenebilir.  **_YAPILDI_**
