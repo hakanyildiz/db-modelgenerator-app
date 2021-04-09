@@ -1,0 +1,99 @@
+<mat-sidenav-container class="app-content" *ngIf="!user.isAdmin">
+    <mat-sidenav-content class="main-content">
+        <mat-toolbar color="primary" class="main-toolbar">
+            <mat-toolbar-row>
+                <h1 routerLink="/" class="app-brand">
+                    {{appName}}
+                </h1>
+                <span class="aa-spacer"></span>
+                <img [src]="logoSrc" alt="Logo Description">
+            </mat-toolbar-row>
+            <mat-toolbar-row>
+                <div class="user-card">
+                    <img src={{user.avatarUrl}} alt="Kullanıcı Logo" class="user-card-avatar">
+                    <div class="user-card-text">
+                        <div class="user-card-title">{{user?.username}}</div>
+                        <div class="user-card-subtitle">{{user?.fullName}}</div>
+                    </div>
+                </div>
+                <span class="aa-spacer"></span>
+                <button mat-raised-button color="primary" (click)="logout()" class="logout-button">
+                  <mat-icon>power_settings_new</mat-icon>
+                  <a matLine>Çıkış Yap</a>
+              </button>
+            </mat-toolbar-row>
+        </mat-toolbar>
+        <main class="main-content-inner">
+            <section class="content-area">
+                <router-outlet></router-outlet>
+            </section>
+        </main>
+    </mat-sidenav-content>
+</mat-sidenav-container>
+
+<mat-sidenav-container class="app-content" *ngIf="user.isAdmin">
+    <mat-sidenav #appSideNav [mode]="mobileQuery.matches ? 'over' : 'side'" [opened]="!mobileQuery.matches" [fixedInViewport]="mobileQuery.matches">
+        <mat-toolbar color="primary">
+            <mat-toolbar-row>
+                <div class="user-card">
+                    <img src={{user.avatarUrl}} alt="Kullanıcı Logo" class="user-card-avatar">
+                    <div class="user-card-text">
+                        <div class="user-card-title">{{user.username}}</div>
+                        <div class="user-card-subtitle">{{user.fullName}}</div>
+                    </div>
+                </div>
+            </mat-toolbar-row>
+        </mat-toolbar>
+
+        <mat-nav-list *ngIf="!user.isAdmin">
+            <mat-list-item routerLink="/dashboard">
+                <mat-icon matListIcon>polymer</mat-icon>
+                <a matLine>Views</a>
+            </mat-list-item>
+        </mat-nav-list>
+
+        <mat-nav-list *ngIf="user.isAdmin">
+            <h3 mat-subheader>Kullanıcı Arayüzü</h3>
+            <mat-list-item routerLink="/dashboard">
+                <mat-icon matListIcon>collections_bookmark</mat-icon>
+                <a matLine>Dashboard</a>
+            </mat-list-item>
+            <mat-divider></mat-divider>
+            <h3 mat-subheader>Admin Arayüzü</h3>
+            <mat-list-item routerLink="/admin">
+                <mat-icon matListIcon>note</mat-icon>
+                <a matLine>Admin</a>
+            </mat-list-item>
+        </mat-nav-list>
+
+        <mat-nav-list class="bottom-nav-list">
+            <mat-divider></mat-divider>
+            <mat-list-item (click)="logout()">
+                <mat-icon matListIcon>power_settings_new</mat-icon>
+                <a matLine>Çıkış Yap</a>
+            </mat-list-item>
+        </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content class="main-content">
+        <mat-toolbar color="primary" class="main-toolbar">
+            <mat-toolbar-row>
+                <button mat-icon-button (click)="appSideNav.toggle()" *ngIf="mobileQuery.matches">
+                  <mat-icon>menu</mat-icon>
+              </button>
+                <h1 routerLink="/" class="app-brand">
+                    {{appName}}
+                </h1>
+                <span class="aa-spacer"></span>
+                <img [src]="logoSrc" alt="Logo description">
+            </mat-toolbar-row>
+        </mat-toolbar>
+        <main class="main-content-inner">
+            <section class="core-feature-area">
+                <app-refresh-button></app-refresh-button>
+            </section>
+            <section class="content-area">
+                <router-outlet></router-outlet>
+            </section>
+        </main>
+    </mat-sidenav-content>
+</mat-sidenav-container>

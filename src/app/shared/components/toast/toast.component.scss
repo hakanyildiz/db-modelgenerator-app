@@ -1,0 +1,27 @@
+.toast {
+    position: relative;
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+    width: 290px;
+    background: #fff;
+    color: #fff;
+    background: #DB4437;
+    padding: 15px 20px;
+}
+
+.toast.success {
+    background: #0F9D58 !important;
+}
+
+.toast.info {
+    background: #4285F4 !important
+}
+
+.toast.warning {
+    background: #F4B400;
+}
+
+.toast.error {
+    background: #DB4437;
+}

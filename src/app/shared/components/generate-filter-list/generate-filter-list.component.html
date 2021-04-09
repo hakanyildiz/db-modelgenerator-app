@@ -1,0 +1,53 @@
+<ivr-card ititle="Tablo Filtreleri" class="mat-elevation-z4">
+    <div class="generate-filter-list-container">
+        <form (ngSubmit)="submit">
+            <div class="form-container layout horizontal">
+                <!-- Filter Type -->
+                <mat-form-field color="accent">
+                    <mat-label>Filtre Seçimi</mat-label>
+                    <mat-select matNativeControl required [(value)]="newFilter.generateFilterTypes">
+                        <mat-option value="replace">replace</mat-option>
+                        <mat-option value="add_suffix">add_suffix</mat-option>
+                        <mat-option value="add_prefix">add_prefix</mat-option>
+                    </mat-select>
+                </mat-form-field>
+
+                <ng-container *ngIf="newFilter.generateFilterTypes === 'replace'; then thenTemplate; else elseTemplate"></ng-container>
+                <ng-template #thenTemplate>
+                    <mat-form-field color="accent">
+                        <input matInput #input class="form-control" placeholder="Eski Değer" [(ngModel)]="newFilter.beforeValue" name="beforeValue">
+                    </mat-form-field>
+                    <mat-form-field color="accent">
+                        <input matInput #input class="form-control" placeholder="Yeni Değer" [(ngModel)]="newFilter.afterValue" name="afterValue">
+                    </mat-form-field>
+
+                </ng-template>
+                <ng-template #elseTemplate>
+                    <mat-form-field color="accent">
+                        <input matInput #input class="form-control" placeholder="Suffix/Prefix Değeri" [(ngModel)]="newFilter.value" name="value">
+                    </mat-form-field>
+                </ng-template>
+
+                <!-- ACTION BUTTON -->
+                <div class="action-button">
+                    <button mat-raised-button color="primary" [type]="submit" (click)="addFilter($event)">
+                  <mat-icon>add</mat-icon>
+                </button>
+                </div>
+            </div>
+        </form>
+
+        <div class="selected-filter-list" *ngIf="filterList.length > 0">
+            <span>Seçilen Filtreler</span>
+            <ul>
+                <li *ngFor="let filter of filterList; let i=index">
+                    <small>{{ filter | json}}</small>
+                    <button color="warn" mat-raised-button (click)="removeFilter(i)">
+                  <mat-icon>delete</mat-icon>
+              </button>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+</ivr-card>

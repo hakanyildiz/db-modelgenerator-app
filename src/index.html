@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>DB Model Generator</title>
+    <base href="/">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <script>
+        var appName = "DB Model Generator";
+        window.appName = appName;
+
+        // Rest API URL
+        //var restApiURL = "http://172.20.1.31:8080/ivr-dbgenerator-api";
+        var restApiURL = "http://localhost:8035";
+        window.restApiURL = restApiURL;
+
+        // Keycloak URL
+        var keycloakURL = "http://172.20.##.##:####";
+        window.keycloakURL = keycloakURL;
+
+        // Keycloak Client ID
+        var keycloakClientID = "custom-client-name";
+        window.keycloakClientID = keycloakClientID;
+    </script>
+
+</head>
+
+<body class="mat-typography">
+    <app-root></app-root>
+</body>
+
+</html>

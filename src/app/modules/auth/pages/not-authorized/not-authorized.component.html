@@ -1,0 +1,16 @@
+<div class="login-container">
+    <mat-card class="login-card mat-elevation-z8">
+        <mat-card-header>
+            <div mat-card-avatar class="logo-header-image"></div>
+            <mat-card-title>{{appName}}</mat-card-title>
+            <mat-card-subtitle>{{appDevName}}</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+            <div class="content">
+                <p><b>Kullanıcınızın veya dahil olduğunuz grupların uygulamaya erişim yetkisi bulunmamaktadır.</b></p>
+                <p>Daha detaylı bilgi almak için destek ekipleriyle iletişime geçebilirsiniz.</p>
+                <button mat-raised-button color="primary" (click)="toRoot()">Tekrar Giriş Yapmak için Tıklayınız</button>
+            </div>
+        </mat-card-content>
+    </mat-card>
+</div>

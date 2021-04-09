@@ -1,0 +1,64 @@
+<form #formControl="ngForm" (ngSubmit)="submit">
+    <div class="form-container">
+
+        <div class="layout horizontal">
+            <!-- IP -->
+            <mat-form-field color="accent">
+                <input matInput #input class="form-control" placeholder="IP" [(ngModel)]="dbConnectInfo.ip" name="ip" required>
+                <mat-error *ngIf="formControl.invalid">{{getErrorMessage()}}</mat-error>
+            </mat-form-field>
+
+            <!-- USERNAME -->
+            <mat-form-field color="accent">
+                <input matInput #input class="form-control" placeholder="Kullanıcı Adı" [(ngModel)]="dbConnectInfo.username" name="username" required>
+                <mat-error *ngIf="formControl.invalid">{{getErrorMessage()}}</mat-error>
+            </mat-form-field>
+
+            <!-- PASSWORD -->
+            <mat-form-field color="accent">
+                <mat-label>Şifre</mat-label>
+                <input matInput [type]="hide ? 'password' : 'text'" class="form-control" [(ngModel)]="dbConnectInfo.password" name="password" required>
+                <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Şifreyi Gizle'" [attr.aria-pressed]="hide">
+                  <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                </button>
+            </mat-form-field>
+
+
+        </div>
+        <div class="layout horizontal">
+            <!-- SCHEMA -->
+            <mat-form-field color="accent">
+                <input matInput #input class="form-control" placeholder="Schema" [(ngModel)]="dbConnectInfo.schema" name="schema">
+            </mat-form-field>
+
+            <!-- OWNER -->
+            <mat-form-field color="accent">
+                <input matInput #input class="form-control" placeholder="OWNER" [(ngModel)]="dbConnectInfo.owner" name="owner">
+            </mat-form-field>
+
+            <!-- DBTYPE -->
+            <mat-form-field color="accent">
+                <mat-label>Veritabanı Tipi</mat-label>
+                <mat-select matNativeControl required [(value)]="dbConnectInfo.dbType">
+                    <mat-option value="oracle">Oracle</mat-option>
+                    <mat-option value="postgre">Postgre</mat-option>
+                    <mat-option value="cassandra">Cassandra</mat-option>
+                </mat-select>
+            </mat-form-field>
+            <!-- PORT -->
+            <mat-form-field color="accent">
+                <input type="number" matInput #input class="form-control" placeholder="Port" [(ngModel)]="dbConnectInfo.port" name="viewName">
+            </mat-form-field>
+
+            <!-- ACTION BUTTON -->
+            <div class="action-button">
+                <button mat-raised-button color="primary" [type]="submit" [disabled]="!formControl.valid" (click)="connect()">
+                  <mat-icon>adb</mat-icon>
+                  Bağlan
+              </button>
+            </div>
+        </div>
+
+    </div>
+
+</form>

@@ -1,0 +1,6 @@
+<div class="toast mat-elevation-z4" [@fadeAnimation]="{value: animationState, params:
+  { fadeIn: fadeIn, fadeOut: fadeOut }}" (@fadeAnimation.done)="onFadeFinished($event)" [ngClass]="{'success': isSuccess, 'info': isInfo, 'warning': isWarning, 'error': isError }">
+    <!-- <mat-icon>{{ iconType }}</mat-icon> -->
+    <div>{{ data.text }}</div>
+    <!-- <mat-icon (click)="close()">close</mat-icon> -->
+</div>

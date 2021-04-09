@@ -1,0 +1,35 @@
+<div class="form-container">
+
+    <ivr-card ititle="Hedef Tablo Seçimleri" class="mat-elevation-z4">
+        <ng-select placeholder="Tablo Seçiniz" [items]="tables" [multiple]="true" bindLabel="name" groupBy="group" [selectableGroup]="true" [closeOnSelect]="false" bindValue="name" [(ngModel)]="selectedTables">
+            <ng-template ng-optgroup-tmp let-item="item" let-item$="item$" let-index="index">
+                <input id="item-{{index}}" type="checkbox" [ngModel]="item$.selected" /> {{item.group}}
+            </ng-template>
+            <ng-template ng-option-tmp let-item="item" let-item$="item$" let-index="index">
+                <input id="item-{{index}}" type="checkbox" [ngModel]="item$.selected" /> {{item.name}}
+            </ng-template>
+        </ng-select>
+
+        <small *ngIf="selectedTables.length > 0">Seçilen Tablolar: {{selectedTables | json}}</small>
+    </ivr-card>
+
+    <app-generate-filter-list (filterListEvent)="filterListEventHandler($event)"></app-generate-filter-list>
+
+    <ivr-card ititle="Ek Parametreler" class="mat-elevation-z4">
+        <mat-checkbox class="permission-checkbox" [(ngModel)]="additionalParams.idtoUUIDFormat" name="idtoUUIDFormat">ID to UUID Format
+        </mat-checkbox>
+
+        <mat-form-field color="accent">
+            <input matInput #input class="form-control" placeholder="Class Package Name" [(ngModel)]="additionalParams.classPackageName" name="classPackageName">
+        </mat-form-field>
+    </ivr-card>
+
+    <ivr-card class="mat-elevation-z4">
+        <div class="layout horizontal">
+            <button mat-raised-button color="primary" [type]="submit" (click)="execute()" [disabled]="!(selectedTables.length>0)?true:false || executeLoading">
+            <mat-icon>save_alt</mat-icon>
+            Modelleri Oluştur
+        </button>
+        </div>
+    </ivr-card>
+</div>

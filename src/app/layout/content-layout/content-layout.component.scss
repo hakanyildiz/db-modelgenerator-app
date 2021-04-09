@@ -1,0 +1,111 @@
+.bottom-nav-list {
+    position: absolute;
+    bottom: 10px;
+    width: 100%;
+}
+
+.aa-spacer {
+    flex: 1 1 auto;
+}
+
+.username-icon {
+    padding: 0 14px;
+}
+
+.app-content {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100vw;
+    height: 100vh;
+}
+
+.app-logo {
+    height: 180%;
+    margin-left: -20px;
+}
+
+.app-brand {
+    font-size: 22px;
+    letter-spacing: 1px;
+    color: #fff;
+}
+
+.app-content .mat-sidenav {
+    width: 300px;
+}
+
+.app-content .main-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.app-content .main-content .main-toolbar {
+    flex: 0 0 auto;
+    z-index: 999;
+}
+
+.app-content .main-content .main-content-inner {
+    flex: 1 1 auto;
+    position: relative;
+    /* need this to position inner content */
+    overflow-y: auto;
+}
+
+.app-content .main-content .main-content-inner .content-area {
+    padding: 15px 30px;
+}
+
+.user-card,
+.user-card-avatar,
+.user-card-text {
+    display: flex;
+}
+
+.user-card .user-card-avatar {
+    /* font-weight: bold;
+  align-items: center;
+  justify-content: center;
+  height: 45px;
+  width: 45px;
+  border-radius: 50%;
+  margin-right: 5px;
+  background: white;
+  color: #3f51b5;
+  font-size: 24px; */
+    width: 56px;
+    border-radius: 50%;
+    height: 56px;
+    margin-right: 5px;
+}
+
+.user-card .user-card-text {
+    flex-direction: column;
+    color: #fff !important;
+}
+
+.user-card .user-card-text .user-card-title {
+    font-size: 20px;
+    margin-bottom: -10px;
+    margin-top: 5px;
+}
+
+.user-card .user-card-text .user-card-subtitle {
+    font-size: 14px;
+    font-weight: 300;
+}
+
+.logout-button {
+    padding: 5px 12px;
+    font-size: 19px;
+    min-width: 125px;
+}
+
+.logout-button mat-icon {
+    height: 28px;
+    width: 28px;
+    font-size: 28px;
+    padding-right: 4px;
+}
